@@ -8,7 +8,7 @@ const NavBar = () => {
         <div>
             LMs
         </div>
-        <div>
+        <div className='flex items-center gap-5'>
             <button onClick={()=>navigate('/signin')}>Signin</button>
             <button onClick={()=>navigate('/signup')}>Sign Up</button>
         </div>
