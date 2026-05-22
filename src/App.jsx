@@ -4,10 +4,12 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Landing from './pages/Landing'
-import { AuthenticateWithRedirectCallback, SignIn, SignInButton, SignUp } from '@clerk/react'
+import { AuthenticateWithRedirectCallback, SignIn, SignInButton, SignUp } from '@clerk/clerk-react'
 import NavBar from './component/NavBar'
 import { Routes,Route } from 'react-router-dom'
 import SignInPage from './pages/Signin.jsx'
+import SignUpPage from './pages/Signup.jsx'
+
 
 
 function App() {
@@ -19,8 +21,8 @@ function App() {
       <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signin" element={<SignInPage/>} />
-          <Route path="/signup" element={<SignUp/>} />
-          <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback/>} />
+          <Route path="/signup" element={<SignUpPage/>} />
+          <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback />} />
       </Routes>
     </>
   )

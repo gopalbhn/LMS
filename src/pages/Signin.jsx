@@ -1,24 +1,32 @@
-import { SignInButton,SignIn } from '@clerk/react'
-import {useSignIn} from '@clerk/react'
+import { SignInButton } from '@clerk/clerk-react'
+import { useSignIn } from '@clerk/clerk-react'
 import React from 'react'
 
 const SignInPage = () => {
-  const signIn = useSignIn()
+  const { signIn,isLoaded } = useSignIn();
+   async function signInWithGoogle() {
+    console.log('Google Sign-In clicked')  
 
-  async function signInWithGoogle(){
-    await signIn.authenticateWithRedirect({
-      strategy:'oauth_google',
-      redirectUrl:'/sso-callback',
-      redirectUrlComplete: '/dashboard'
-    })
+    if(!isLoaded || !signIn){
+      console.log('SignIn is not loaded yet.');
+      return;
+    }
+    try{
+
+      await signIn.authenticateWithRedirect({
+        strategy: 'oauth_google',
+        redirectUrl: '/sso-callback',
+        redirectUrlComplete: `${window.location.origin}/dashboard`,
+        
+      });
+    }    catch(error){
+      console.error('Error during Google Sign-In:', error.message);
+    }
   }
-  return(
+
+  return (
     <div className='h-screen w-full flex items-center justify-center'>
-      <div className='h-[400px] w-[400px] p-5 border rounded-md bg-blue-100'>
-        <button className='h-10 w-full bg-blue-600 text-white rounded-md mb-5' onClick={signInWithGoogle}>
-          Continue with Google
-        </button>
-      </div>
+      <button onClick={signInWithGoogle} className='bg-blue-500 text-white px-4 py-2 rounded'>Sign in with Google</button>
     </div>
   )
 }
