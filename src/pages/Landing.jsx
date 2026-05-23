@@ -2,7 +2,14 @@
 
 const Landing = () => {
   return (
-    <div>Landing Page</div>
+    <div className="h-full w-full px-1">
+      <div className="h-[80vh] w-full flex ">
+        <div>
+          Welcome to LMS
+        </div>
+      </div>
+
+    </div>
   )
 }
 

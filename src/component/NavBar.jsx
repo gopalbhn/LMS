@@ -1,11 +1,20 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import {useSession} from "@clerk/clerk-react";
-const NavBar = () => {
+import {useAuth } from "@clerk/clerk-react";
+import { useState, useEffect } from 'react';
+const NavBar =  () => {
     const navigate = useNavigate();
-    const { isSignedIn } = useSession();
-    const loggedIn = isSignedIn;
-
+    const { getToken } = useAuth();
+    const [token, setToken] = useState(null);
+    useEffect(() => {
+        const fetchToken = async () => {
+            const tkn = await getToken();
+            setToken(tkn);
+        };
+        fetchToken();
+    }, [getToken]);
+    console.log("token:", token);
+    const loggedIn = !!token;
     function handleSignout(){
         localStorage.clear();
         navigate('/signin');
