@@ -9,7 +9,7 @@ import NavBar from './component/NavBar'
 import { Routes,Route } from 'react-router-dom'
 import SignInPage from './pages/Signin.jsx'
 import SignUpPage from './pages/Signup.jsx'
-
+import DashBoard from "./pages/Dashboard.jsx"
 
 
 function App() {
@@ -17,10 +17,11 @@ function App() {
 
   return (
     <>
-      <NavBar />
+   
       <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signin" element={<SignInPage/>} />
+          <Route path='/dashboard' element ={<DashBoard />} />
           <Route path="/signup" element={<SignUpPage/>} />
           <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback />} />
       </Routes>

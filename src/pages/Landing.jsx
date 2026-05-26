@@ -8,7 +8,11 @@ import {
   Award,
   Users,
   CheckCircle,
+  ChevronRight,
+  Star,
+  Clock,
 } from "lucide-react";
+import NavBar from "../component/NavBar";
 
 const Landing = () => {
   const Features = [
@@ -76,8 +80,65 @@ const Landing = () => {
       ],
     },
   ];
+
+  const COURSES = [
+    {
+      id: 1,
+      title: "Full-Stack Web Development",
+      instructor: "Dr. Sarah Chen",
+      thumb: `https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=240&fit=crop&auto=format`,
+      progress: 72,
+      students: 1284,
+      rating: 4.8,
+      hours: "42h",
+      cat: "Engineering",
+      price: "$89",
+      status: "published",
+    },
+    {
+      id: 2,
+      title: "Data Science & Machine Learning",
+      instructor: "Prof. James Kim",
+      thumb: `https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=240&fit=crop&auto=format`,
+      progress: 45,
+      students: 963,
+      rating: 4.9,
+      hours: "56h",
+      cat: "Data Science",
+      price: "$99",
+      status: "published",
+    },
+    {
+      id: 3,
+      title: "UX/UI Design Fundamentals",
+      instructor: "Maya Rodriguez",
+      thumb: `https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=400&h=240&fit=crop&auto=format`,
+      progress: 91,
+      students: 742,
+      rating: 4.7,
+      hours: "28h",
+      cat: "Design",
+      price: "$79",
+      status: "draft",
+    },
+    {
+      id: 4,
+      title: "Digital Marketing Strategy",
+      instructor: "Alex Thompson",
+      thumb: `https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=240&fit=crop&auto=format`,
+      progress: 18,
+      students: 1567,
+      rating: 4.6,
+      hours: "35h",
+      cat: "Marketing",
+      price: "$69",
+      status: "published",
+    },
+  ];
+
   return (
     <div className="h-full w-full relative ">
+      <NavBar />
       <div className="h-screen bg-cover bg-center  relative bg-[linear-gradient(120deg,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.5)_60%,rgba(0,0,0,0.2)_100%),url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=700&fit=crop&auto=format')]">
         <div className="max-w-6xl px-8 py-28 mx-auto">
           <div className=" w-55 px-3 py-1.5 mb-6 border border-[#6d6bdb] rounded-xl text-white text-xs font-bold bg-[#6D6BDB30] flex gap-2 items-center">
@@ -157,20 +218,24 @@ const Landing = () => {
                       {role.label}
                     </span>
                   </div>
-
                 </div>
                 <div className=" p-5">
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">{role.desc}</p>
+                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                    {role.desc}
+                  </p>
                   <ul className="space-y-1.5 mb-5">
-                    {role.features.map(item=>(
-                      <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                    {role.features.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-2 text-sm text-gray-700"
+                      >
                         <CheckCircle className="h-3.5 w-3.5 shrink" />
                         {item}
                       </li>
                     ))}
                   </ul>
                   <button className="w-full py-2.5 rounded-xl bg-[#6D6BDB]/30  text-[#6D6BDB] text-sm font-bold hover-opacity-10">
-                     Preview {role.label} Dashboard →
+                    Preview {role.label} Dashboard →
                   </button>
                 </div>
               </div>
@@ -178,6 +243,75 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      <div className="max-w-6xl px-8 py-20 mx-auto">
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl font-bold textgray900">Popular Courses</h2>
+          <button className="text-sm font-semibold flex items-center gap-1 text-[#6D6BDB]">
+            {" "}
+            View all Courses <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+        <div className="grid grid-cols-4 gap-5">
+          {COURSES.map((c) => (
+            <div
+              key={c.id}
+              className="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <div className="h-40 relative  bg-gray-100">
+                <div className="absolute inset-0 bg-linear-to-r from-black-50 to-transparent" />
+                <img
+                  src={c.thumb}
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-3 left-3 ">
+                  <span
+                    className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold border bg-indigo-50 text-indigo-600 border-indigo-100`}
+                  >
+                    {c.cat}
+                  </span>
+                </div>
+                {c.progress == 90 && (
+                  <div className="absolute top-3 left-3">
+                    {" "}
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold border bg-green-50 text-green-600 border-green-100">
+                      {" "}
+                      Almost done!
+                    </span>{" "}
+                  </div>
+                )}
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold text-gray-900 text-sm leading-tight mb-2 line-clamp-2">
+                  {c.title}
+                </h3>
+                <p className="text-xs text-gray-400 mb-3">{c.instructor}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1 text-xs text-gray-500">
+                    <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+                    <span className="font-semibold text-gray-700">
+                      {c.rating}
+                    </span>
+                    <span>({c.students.toLocaleString()})</span>
+                  </div>
+                  <span className="font-bold text-gray-900 text-sm">
+                    {c.price}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="w-full py-20 bg-[#6D6BDB]">
+            <div className="max-w-3xl px-8 mx-auto text-center">
+              <h1 className="text-4xl text-white font-bold mb-4" style={{fontFamily:"'Outfit':sans-serif"}}>Ready to transform your learning?</h1>
+              <p className="text-indigo-200 mx-auto max-w-xl text-base mb-8">Join over 4,800 students and 38 expert instructors on EduFlow. Your first month is free.</p>
+              <div className="flex items-center justify-center gap-4">
+                <button className="px-8.5 py-3.5 bg-white font-bold text-sm text-[#6D6BDB] rounded-xl hover:bg-indigo-10">Get Started Free</button>
+                <button className="px-8 py-3.5 border border-white rounded-xl text-white font-bold hover:bg-white/10">Sign In</button>
+              </div>
+               </div>
+      </div>  
     </div>
   );
 };
