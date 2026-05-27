@@ -5,19 +5,32 @@ import {
   Radio,
   ClipboardList,
   Award,
-  LogOut
+  LogOut,
 } from "lucide-react";
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SideBar = () => {
   const SideBarItems = [
-    { icon: LayoutDashboard, label: "Overview", id: "overview" },
-    { icon: BookOpen, label: "My Courses", id: "courses" },
-    { icon: Radio, label: "Live Classes", id: "live" },
-    { icon: ClipboardList, label: "Assignments", id: "assignments" },
-    { icon: Award, label: "Grades", id: "grades" },
+    {
+      icon: LayoutDashboard,
+      label: "Overview",
+      id: "overview",
+      link: "/dashboard",
+    },
+    { icon: BookOpen, label: "My Courses", id: "courses", link: "/mycourses" },
+    { icon: Radio, label: "Live Classes", id: "live", link: "/live" },
+    {
+      icon: ClipboardList,
+      label: "Assignments",
+      id: "assignments",
+      link: "/assignments",
+    },
+    { icon: Award, label: "Grades", id: "grades", link: "/grades" },
   ];
-  const [tab, setTab] = React.useState("overview");
+
+  const navigate = useNavigate();
+  const { tab } = useParams();
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-100 flex flex-col fixed left-0 top-0 z-20 shadow-sm">
       <div className="h-16 px-6 flex items-center border-b border-gray-100 flex-shrink-0">
@@ -46,17 +59,19 @@ const SideBar = () => {
             <p className="text-xs text-gray-400">Learner</p>
           </div>
         </div>
+        </div>
         <div className="flex-1 px-3 py-3 overflow-y-auto">
           <p className="px-3 text-[10px] font-bold text-gray-400 tracking-widest mb-2 uppercase ">
             navigation
           </p>
         </div>
         {SideBarItems.map((item) => {
+          console.log("item",item.id,"tab",tab)
           const active = item.id === tab;
           return (
             <button
               key={item.id}
-              onClick={() => setTab(item.id)}
+              onClick={() => navigate(item.link)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg mb-0.5 text-sm text-left transition-all ${active ? "text-white font-semibold bg-[#6D6BDB]" : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"} `}
             >
               <item.icon className="w-4 h-4 flex-shrink-0" />
@@ -64,13 +79,10 @@ const SideBar = () => {
             </button>
           );
         })}
-        <div >
-
-        </div>
-      </div>
-       <div className="mt-25 px-3 pb-4 pt-2 border-t border-gray-100 flex-shrink-0">
+      
+      <div className="mt-25 px-3 pb-4 pt-2 border-t border-gray-100 flex-shrink-0">
         <button
-          onClick={()=>console.log("click")}
+          onClick={() => console.log("click")}
           className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors"
         >
           <LogOut className="w-4 h-4" />
