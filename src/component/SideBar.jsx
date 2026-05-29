@@ -8,7 +8,7 @@ import {
   LogOut,
 } from "lucide-react";
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const SideBar = () => {
   const SideBarItems = [
@@ -30,7 +30,7 @@ const SideBar = () => {
   ];
 
   const navigate = useNavigate();
-  const { tab } = useParams();
+  const  location = useLocation();
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-100 flex flex-col fixed left-0 top-0 z-20 shadow-sm">
       <div className="h-16 px-6 flex items-center border-b border-gray-100 flex-shrink-0">
@@ -66,8 +66,9 @@ const SideBar = () => {
           </p>
         </div>
         {SideBarItems.map((item) => {
-          console.log("item",item.id,"tab",tab)
-          const active = item.id === tab;
+          
+          const active = item.link=== location.pathname;
+          console.log(location.pathname)
           return (
             <button
               key={item.id}

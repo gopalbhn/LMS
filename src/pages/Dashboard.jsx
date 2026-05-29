@@ -1,5 +1,7 @@
 import React from "react";
 import SideBar from "../component/SideBar";
+import StudentTopBar from "../component/StudentTopBar";
+import { LIVE_SESSIONS } from "../data";
 import {
   Award,
   Bell,
@@ -8,77 +10,18 @@ import {
   ChevronRight,
   Radio,
   Search,
+  Video,
+  ClipboardList,
+  BarChart3,
+  Users
 } from "lucide-react";
-
 const Dashboard = () => {
-  const LIVE_SESSIONS = [
-    {
-      id: 1,
-      title: "Advanced React Patterns",
-      by: "Dr. Sarah Chen",
-      date: "Today",
-      time: "3:00 PM",
-      dur: "90 min",
-      n: 47,
-      live: true,
-    },
-    {
-      id: 2,
-      title: "Neural Networks Deep Dive",
-      by: "Prof. James Kim",
-      date: "Tomorrow",
-      time: "11:00 AM",
-      dur: "2h",
-      n: 63,
-      live: false,
-    },
-    {
-      id: 3,
-      title: "Color Theory in UI Design",
-      by: "Maya Rodriguez",
-      date: "May 26",
-      time: "2:00 PM",
-      dur: "75 min",
-      n: 38,
-      live: false,
-    },
-    {
-      id: 4,
-      title: "SEO & Content Strategy",
-      by: "Alex Thompson",
-      date: "May 27",
-      time: "4:00 PM",
-      dur: "60 min",
-      n: 52,
-      live: false,
-    },
-  ];
+
   return (
     <div className="relative h-screen w-full">
       <SideBar />
       <div className="ml-64 h-screen   ">
-        <div className="w-full px-5 h-15 flex items-center justify-between border-b border-gray-100 shadow-sm ">
-          <span
-            className="text-lg font-bold text-gray-600"
-            style={{ fontFamily: "'Outfit',sans-serif" }}
-          >
-            Dashboard
-          </span>
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <Search className="h-4 w-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search... "
-                className="pl-9 py-2 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-sm w-52 focus:outline-none transition-all"
-              />
-            </div>
-            <button className="relative p-2.5 rounded-xl hover:bg-gray-50 transition-colors">
-              <Bell className="h-5 w-5 text-gray-600" />
-              <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#6D6BDB]"></span>
-            </button>
-          </div>
-        </div>
+        <StudentTopBar page={"Dashboard"} />
         <div className="p-6 space-y-6">
           <div className=" h-40 rounded-xl relative overflow-hidden ">
             <img
@@ -207,14 +150,14 @@ const Dashboard = () => {
                   {live.live ? (
 
                     <button className="px-3 py-1.5 rounded-lg text-xs font-bold text-white flex items-center gap-1.5 animate-pulse bg-[#6D6BDB]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
-                    Live
-                  </button>
-                  ):
-                  <button className="px-3 py-1.5 rounded-lg text-xs font-medium text-gray-600 border border-gray-200 hover:border-gray-50">
-                    Remind Me
-                  </button>
-                }
+                      <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
+                      Live
+                    </button>
+                  ) :
+                    <button className="px-3 py-1.5 rounded-lg text-xs font-medium text-gray-600 border border-gray-200 hover:border-gray-50">
+                      Remind Me
+                    </button>
+                  }
                 </div>
               ))}
             </div>

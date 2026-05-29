@@ -11,6 +11,7 @@ import SignInPage from './pages/Signin.jsx'
 import SignUpPage from './pages/Signup.jsx'
 import DashBoard from "./pages/Dashboard.jsx"
 import MyCourses from './pages/Student/MyCourses.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signin" element={<SignInPage/>} />
-          <Route path='/dashboard' element ={<DashBoard />} />
+          <Route path='/dashboard/' element ={<Dashboard />} />
           <Route path='/mycourses' element = {<MyCourses />} />
           <Route path="/signup" element={<SignUpPage/>} />
           <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback />} />

@@ -1,0 +1,178 @@
+ import {
+  Award,
+  Bell,
+  BookOpen,
+  CheckCircle,
+  ChevronRight,
+  Radio,
+  Search,
+  Video,
+  ClipboardList,
+  BarChart3,
+  Users
+} from "lucide-react";
+
+ export const LIVE_SESSIONS = [
+    {
+      id: 1,
+      title: "Advanced React Patterns",
+      by: "Dr. Sarah Chen",
+      date: "Today",
+      time: "3:00 PM",
+      dur: "90 min",
+      n: 47,
+      live: true,
+    },
+    {
+      id: 2,
+      title: "Neural Networks Deep Dive",
+      by: "Prof. James Kim",
+      date: "Tomorrow",
+      time: "11:00 AM",
+      dur: "2h",
+      n: 63,
+      live: false,
+    },
+    {
+      id: 3,
+      title: "Color Theory in UI Design",
+      by: "Maya Rodriguez",
+      date: "May 26",
+      time: "2:00 PM",
+      dur: "75 min",
+      n: 38,
+      live: false,
+    },
+    {
+      id: 4,
+      title: "SEO & Content Strategy",
+      by: "Alex Thompson",
+      date: "May 27",
+      time: "4:00 PM",
+      dur: "60 min",
+      n: 52,
+      live: false,
+    },
+  ];
+
+     export const Features = [
+    {
+      icon: Radio,
+      title: "Live Interactive Classes",
+      desc: "Join real-time sessions with HD video, screen sharing, and live Q&A with instructors.",
+    },
+    {
+      icon: Video,
+      title: "On-Demand Recordings",
+      desc: "Access every past lecture at any time. Never fall behind with a searchable video library.",
+    },
+    {
+      icon: ClipboardList,
+      title: "Smart Assignments",
+      desc: "Submit work, track deadlines, and receive detailed instructor feedback in one place.",
+    },
+    {
+      icon: BarChart3,
+      title: "Progress Analytics",
+      desc: "Visualize your learning journey with detailed progress reports and grade tracking.",
+    },
+    {
+      icon: Award,
+      title: "Certificates",
+      desc: "Earn verified certificates upon course completion to showcase your achievements.",
+    },
+    {
+      icon: Users,
+      title: "Community",
+      desc: "Connect with fellow learners, join study groups, and collaborate on projects.",
+    },
+  ];
+
+    export const ROLE_CARDS = [
+    {
+      role: "learner",
+      label: "Learner",
+      desc: "Browse courses, attend live sessions, submit assignments, and track your grades — all in one place.",
+      imgId: "1507003211169-0a1dd7228f2d",
+      features: ["My Courses", "Live Classes", "Assignments", "Grades"],
+    },
+    {
+      role: "instructor",
+      label: "Instructor",
+      desc: "Create and manage courses, host live streams, grade work, and monitor student performance.",
+      imgId: "1573496359142-b8d87734a5a2",
+      features: [
+        "Course Builder",
+        "Live Streaming",
+        "Assignment Grading",
+        "Student Analytics",
+      ],
+    },
+    {
+      role: "admin",
+      label: "Administrator",
+      desc: "Full platform oversight — manage users, approve courses, monitor revenue, and configure settings.",
+      imgId: "1560250097-0b93528c311a",
+      features: [
+        "User Management",
+        "Course Approvals",
+        "Revenue Reports",
+        "Platform Config",
+      ],
+    },
+  ];
+
+  export const COURSES = [
+    {
+      id: 1,
+      title: "Full-Stack Web Development",
+      instructor: "Dr. Sarah Chen",
+      thumb: `https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=240&fit=crop&auto=format`,
+      progress: 72,
+      students: 1284,
+      rating: 4.8,
+      hours: "42h",
+      cat: "Engineering",
+      price: "$89",
+      status: "published",
+    },
+    {
+      id: 2,
+      title: "Data Science & Machine Learning",
+      instructor: "Prof. James Kim",
+      thumb: `https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=240&fit=crop&auto=format`,
+      progress: 45,
+      students: 963,
+      rating: 4.9,
+      hours: "56h",
+      cat: "Data Science",
+      price: "$99",
+      status: "published",
+    },
+    {
+      id: 3,
+      title: "UX/UI Design Fundamentals",
+      instructor: "Maya Rodriguez",
+      thumb: `https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=400&h=240&fit=crop&auto=format`,
+      progress: 91,
+      students: 742,
+      rating: 4.7,
+      hours: "28h",
+      cat: "Design",
+      price: "$79",
+      status: "draft",
+    },
+    {
+      id: 4,
+      title: "Digital Marketing Strategy",
+      instructor: "Alex Thompson",
+      thumb: `https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=240&fit=crop&auto=format`,
+      progress: 18,
+      students: 1567,
+      rating: 4.6,
+      hours: "35h",
+      cat: "Marketing",
+      price: "$69",
+      status: "published",
+    },
+  ];
