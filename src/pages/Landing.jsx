@@ -13,7 +13,7 @@ import {
   Clock,
 } from "lucide-react";
 import NavBar from "../component/NavBar";
-import { Features, ROLE_CARDS } from "../data";
+import { COURSES, Features, ROLE_CARDS } from "../data";
 
 const Landing = () => {
 
