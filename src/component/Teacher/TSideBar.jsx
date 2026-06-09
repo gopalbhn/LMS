@@ -10,12 +10,12 @@ const TSideBar = () => {
       link: "/teacher",
     },
     { icon: BookOpen, label: "My Courses", id: "courses", link: "teacher/mycourses" },
-    { icon: Radio, label: "Live Classes", id: "live", link: "teacher/live" },
+    { icon: Radio, label: "Live Classes", id: "live", link: "/live" },
     {
       icon: ClipboardList,
       label: "Assignments",
       id: "assignments",
-      link: "teacher/assignments",
+      link: "/assignments",
     },
     { icon: Award, label: "Grades", id: "grades", link: "/grades" },
   ];

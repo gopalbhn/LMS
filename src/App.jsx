@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard.jsx'
 import LiveClasses from './pages/LiveClasses.jsx'
 import Assignment from './pages/Assignment.jsx'
 import TLanding from './pages/Teacher/landing.jsx'
+import TCourses from './pages/Teacher/TCourses.jsx'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='/live' element={<LiveClasses />} />
           <Route path="/assignments" element={<Assignment />} />
           <Route path='/teacher' element={<TLanding />} />
+          <Route path='/teacher/courses' element={<TCourses />} />
           <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback />} />
       </Routes>
     </>
